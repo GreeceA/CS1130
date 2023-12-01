@@ -1,0 +1,76 @@
+ <!DOCTYPE html>
+ <html lang="us">
+ <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Marmelad&family=Open+Sans&family=Vina+Sans&family=Young+Serif&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="cssfiles/incometax.css">
+ 
+ <head>
+    <title> Income Tax Calculator </title>
+    <link rel="icon" type="image/x-icon" href="visualelements/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ </head>
+
+ <body>
+ 
+ <h1> &#x269E;&#x2740;INCOME TAX CALCULATOR&#x2740;&#x269F </h1>  <br> <br> <br> 
+ 
+ <div>
+ <label for = "income"> Enter your annual income </label><br><br>
+ <input id= "income" type = "number"> <br> <br>
+
+ <label for = "finaltax"> Income Tax </label> <br><br>
+ <input id = "finaltax" type ="number" readonly> <br><br><br><br><br>
+
+ <input style="margin-left:590px;" type="button" value="Submit" id="submit_button">
+ <input type="button" value="Clear" id="clear_button"> <br> <br> <br><br><br>
+
+ </div>
+ <a href="index.html"> Back to Home Page </a>
+
+ <script>
+    document.getElementById("submit_button").addEventListener("click", ()=>
+     {
+        var income, tax;
+
+        income = document.getElementById("income").value * 1;
+
+        if (income < 250000)
+        {
+            tax = income * 0;
+        }
+        else if (income >= 250000 && 400000 > income)
+        {
+            tax = (income - 250000) * 0.20;
+        }
+        else if (income >= 400000 && 800000 > income)
+        {
+            tax = ((income - 400000) * 0.25) + 30000;
+        }
+        else if (income >= 800000 && 2000000 > income)
+        {
+            tax = ((income - 800000) * 0.30) + 130000;
+        }
+        else if (income >= 2000000 && 8000000 > income)
+        {
+            tax = ((income - 2000000) * 0.32) + 490000;
+        }
+        else if (8000000 < income)
+        {
+            tax = ((income - 8000000) * 0.35) + 2410000;
+        }
+
+        document.getElementById("finaltax").value = tax;
+    
+    });
+
+    document.getElementById("clear_button").addEventListener("click", ()=>
+    {
+        document.getElementById("income").value = '';
+        document.getElementById("finaltax").value = '';
+    });
+
+ </script>
+
+
+ </body>
+ </html>

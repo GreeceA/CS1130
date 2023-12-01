@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="us">
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Kanit:wght@300&family=Libre+Barcode+39+Text&family=Quicksand&display=swap" rel="stylesheet">
+<style> 
+	body
+	{
+		background-image: url('/visualelements/6.png');
+		background-size: cover;
+		background-attachment: fixed;
+	}
+	h1
+	{
+		font-family: 'Libre Barcode 39 Text';
+     	font-size: 70px;
+		text-align: center;
+		margin-top: 70px;
+		color: #d5e09c;
+		letter-spacing: 5px;
+		text-shadow: 
+      -0.8px -0.8px 0 #000000,
+      0.8px -0.8px 0 #000000, 
+      -0.8px 0.8px 0 #000000, 
+      0.8px 0.8px 0 #000000;
+	}
+	label
+	{
+		width: 15%;
+		margin-top: 5px;
+      	font-family: 'Inter';
+      	font-size: 24px;
+      	color: #cbdfbc;
+     	text-shadow: 
+      -0.5px -0.5px 0 #71706E,
+      0.5px -0.5px 0 #71706E, 
+      -0.5px 0.5px 0 #71706E, 
+      0.5px 0.5px 0 #71706E;
+      	letter-spacing: 1px;
+	}
+	input
+	{
+		margin-left: 400px;
+		width: 12%;
+      	border-radius: 10px;
+      	font-family: 'Quicksand';
+      	text-align: center;
+      	font-size: 16px;
+	}
+	button
+	{
+		width: 12%;
+      	border-radius: 10px;
+      	font-family: 'Kanit';
+      	text-align: center;
+      	font-size: 18px;
+      	background-color: #f7f4d3;
+      	font-weight: bold;
+		float: center;
+		margin-left: 403px;
+	}
+	button:hover
+	{
+      	font-size: 20px;
+	}
+	h2
+	{
+		font-family: 'Libre Barcode 39 Text';
+     	font-size: 50px;
+		text-align: left;
+		color: #f09c78;
+		letter-spacing: 5px;
+		margin-left: 60px;
+		text-shadow: 
+      -0.8px -0.8px 0 #000000,
+      0.8px -0.8px 0 #000000, 
+      -0.8px 0.8px 0 #000000, 
+      0.8px 0.8px 0 #000000;
+	}
+	a
+   	{
+      	float: left;
+      	margin-left: 25px;
+      	background-color: #a44b3f;
+      	border-radius: 10px;
+      	padding: 8px;
+      	text-decoration: none;
+      	font-family: 'Inter';
+      	font-size: 18px;
+      	color: white;
+      	border: 1px solid black;
+   	}
+    a:hover
+   	{
+      	font-size: 20px;
+   	}
+
+</style>
+
+<head>
+	<title> Grade Computation </title>
+	<link rel="icon" type="image/x-icon" href= "./visualelements/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+<h1> &#x2655;Raw Test Score &#x21d2; Grade&#x2655; </h1>
+<br> <br> 
+
+<label style="margin-left: 460px;" for = "score"> Score </label> <br>
+<input id = "score" type = "number">
+
+ <br> 
+ 
+<label style="margin-left: 465px;" for = "items"> Items </label> <br>
+<input id = "items" type = "number">
+
+<br> 
+ 
+<label style="margin-left: 465px;" for = "base"> Base </label> <br>
+<input id = "base" type = "number">
+
+ <br> <br> 
+ 
+<button id="compute_grade_button"> Compute Grade </button>
+
+ <br> <br> 
+ 
+<label style="margin-left: 460px;" for ="grade"> Grade </label> <br>
+<input  id ="grade" type ="number" readonly> 
+
+<br>
+
+<label style="margin-left: 350px;" for ="lettergrade"> Letter Grade Equivalent </label> <br>
+<input  id ="lettergrade" type ="text" readonly> 
+
+<br> <br>
+
+<h2 id ="comment"> </h2>
+
+
+ <br> <br>
+
+<a href = "index.html" > Back to Home Page </a> 
+<a href = "https://www.youtube.com/watch?v=BBJa32lCaaY" > Click This </a>
+
+
+<script>
+
+document.getElementById("compute_grade_button").addEventListener("click", ()=>
+	{
+	var score, items, base, g, lg, cm, cp;
+	
+	
+	score = document.getElementById("score"). value * 1;
+	items = document.getElementById("items"). value * 1;
+	base = document.getElementById("base"). value * 1;
+	
+	g = base + ((score/items) * (100 - base));
+	
+	document.getElementById("grade").value = g;
+	
+	// F < 72 , D 72- 75, C 76- 79, C+ 80-83, B 84-79, B+ 88-91, A= 92-100
+	if (g < 72) 
+	{
+		lg = 'F';
+	}
+	else if (g >= 72 && g <= 75)
+	{
+		lg = 'D';
+	}
+	else if (g >= 76 && g <= 79)
+	{
+		lg = 'C';
+	}
+	else if (g >= 80 && g <= 83)
+	{
+		lg = 'C+';
+	}
+	else if (g >= 84 && g <= 87)
+	{
+		lg = 'B';
+	}
+	else if (g >= 88 && g <= 91)
+	{
+		lg = 'B+';
+	}
+	else if (g >= 92 && g <= 100)
+	{
+		lg = 'A';
+	}
+	
+	switch (lg)
+	{
+		case ('F'): cm = 'Failing';
+					cp = 'a';
+					break;
+		case ('D'): cm = 'Passing';
+					cp = 'a';
+					break;
+		case ('C'): 
+		case ('C+'): cm = 'Average';
+					cp = 'an';
+					break;
+		case ('D'): cm = 'Passing';
+					cp = 'a';
+					break;
+		case ('B'): cm = 'Good';
+					cp = 'a';
+					break;
+		case ('D'): cm = 'Very Good';
+					cp = 'a';
+					break;
+		default:    cm = 'Excellent';
+					cp = 'an';
+					break;
+
+	}
+	
+	document.getElementById("comment").innerHTML = 'This is '+cp+' ' +cm+' grade. ';
+	document.getElementById("lettergrade").value = lg;
+	
+	});
+
+</script>
+
+
+
+</body>
+</html>

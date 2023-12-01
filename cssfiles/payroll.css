@@ -1,0 +1,102 @@
+
+    body
+    {
+        background-image: url('/visualelements/4.png');
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    h1
+    {
+        font-family: 'Chango', sans-serif;
+        font-size: 60px;
+        text-align: center;
+        margin-top: 80px;
+        color: #3A6394;
+        letter-spacing: 10px;
+        float: center;
+        text-shadow: 
+      -0.5px -0.5px 0 #FFFFFF,
+      0.5px -0.5px 0 #FFFFFF, 
+      -0.5px 0.5px 0 #FFFFFF, 
+      0.5px 0.5px 0 #FFFFFF;
+    }
+    form label
+    {
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-size: 21px;
+        color: #57504d;
+    }
+    form input
+    {
+        width: 17%;
+        margin-left: 40px;
+        border-radius: 10px;
+        font-family: 'Nunito Sans', sans-serif;
+        text-align: center;
+        font-size: 16px;
+    }
+    form button
+    {
+        width: 5%;
+        margin-left: 40px;
+        border-radius: 10px;
+        font-family: 'EB Garamond', serif;
+        font-size: 16px;
+        color: #453f3d;
+    }
+    form button:hover
+    {
+        font-size: 18px;
+        color: #A9C3D1;
+    }
+    table 
+    {
+        width: 100%;
+    }
+    thead, th
+    {
+        border: 1px dotted;
+        border-collapse: collapse;
+        border-radius: 10px;
+        text-align: center;
+        background-color: #A9C3D1;
+        border-color: #393433;
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-size: 19px;
+        color: #57504d;
+    }
+    td
+    {
+        border: 1px solid;
+        border-collapse: collapse;
+        text-align: center;
+        background-color: #FEFFFF;
+        border-color: #393433;
+        color: #57504d;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 15px;
+    }
+    a
+    {
+        float: right;
+        margin-top: 150px;
+        margin-right: 5px;
+        background-color: #A9C3D1;
+        border-radius: 10px;
+        padding: 8px;
+        text-decoration: none;
+        font-family: 'Salsa';
+        font-size: 18px;
+        color: #FEFFFF;
+        border: 1px solid #57504d;
+    }
+   a:hover
+   {
+        font-size: 20px;
+   }
+   alert
+   {
+        font-family: 'Salsa';
+        font-size: 18px;
+        color: #57504d;
+   }

@@ -1,0 +1,94 @@
+ <!DOCTYPE html>
+ <html lang="us">
+ <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Copse&family=Josefin+Sans:ital@1&family=Nunito+Sans:opsz,wght@6..12,300&family=Quicksand:wght@300&family=Roboto:wght@900&family=Sail&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="cssfiles/conversion.css">
+
+ <header>
+   <title> Converter </title>
+   <link rel="icon" type="image/x-icon" href= "/visualelements/favicon.ico">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+ </header>
+
+
+
+ <body>
+   <h1> &#x2661 CONVERTER &#x2661; </h1><br><br><br> 
+
+   <form>
+      <label class= "text1" for = "process"> Select Conversion Process </label> <br>
+      <select id ="process" name="process" onforminput="convert()">
+         <option value="none"> -None- </option>
+         <option value="cel_to_far"> Celsius to Fahrenheit </option>
+         <option value="far_to_cel"> Fahrenheit to Celsius </option>
+         <option value="meters_to_feet"> Meters to Feet </option>
+         <option value="feet_to_meters"> Feet to Meters </option>
+      </select>
+   </form> <br><br><br>
+
+   <div>
+   <label for="input" style="margin-left:90px;"> Enter a Value to Convert: </label>
+   <label for="output" style="margin-left:115px;"> Converted Value: </label><br><br>
+   <input id = "input" type = "number"> 
+   <input type="button" value="Enter" id="convert_button">
+   <input id = "output" type = "number" readonly>
+   <input type="button" value="Clear" id="clear_button">
+   </div> <br><br><br><br>
+   
+   <h2 id = "conclusion"> </h2> <br><br><br><br><br>
+
+   <a href="index.html">Return to Home Page</a>
+
+   <script>
+         document.getElementById("convert_button").addEventListener("click", ()=>      {
+         var process, input, output, input_name, output_name;
+      
+         process = document.getElementById("process").value;
+         input = document.getElementById("input").value * 1;
+
+         switch(process)
+         {
+            case "cel_to_far":
+               output = (input * 1.8) + 32;
+               input_name = "&#xb0 C";
+               output_name = "&#xb0 F";
+               break;
+            
+            case "far_to_cel":
+               output = (input - 32) * (5/9);
+               output_name = "&#xb0 C";
+               input_name = "&#xb0 F";
+               break;
+            
+            case "meters_to_feet":
+               output = input * 3.28084;
+               input_name = "Meters";
+               output_name = "Feet";
+               break;
+            
+            case "feet_to_meters":
+               output = input * 0.3048;
+               output_name = "Meters";
+               input_name = "Feet";
+               break;
+            case "none":
+               clearelements();
+         }
+            
+         document.getElementById("output").value = output.toFixed(5);
+         document.getElementById("conclusion").innerHTML = 'From ' + input + ' ' + input_name + ' to ' + output + ' ' + output_name;
+      
+      });
+
+      document.getElementById("clear_button").addEventListener("click", ()=>
+      {
+         document.getElementById("input").value = '';
+         document.getElementById("output").value = '';
+         document.getElementById("conclusion").innerHTML = '';
+      });
+
+
+   </script>
+ </body>
+ </html>

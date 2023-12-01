@@ -1,0 +1,164 @@
+ <!DOCTYPE html>
+ <html lang="us">
+ <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Roboto&family=Rubik+Dirt&family=Salsa&display=swap" rel="stylesheet">
+
+ <head>
+    <title> FSA Calculator </title>
+    <link rel="icon" type="image/x-icon" href= "visualelements/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cssfiles/factorial.css">
+ </head>
+ 
+ <body>
+ <h1>  &#x2770;&#x2770;&#x2770; Factorial  Sum  Average &#x2771;&#x2771;&#x2771; </h1> 
+ <h2> Calculator </h2>
+ <br>
+
+ <div class="magic">
+ <label for = "user_input"> Enter Number</label> <br> <br>
+ <input id = "user_input" type="number" > <br> <br> <br> <br>
+ </div>
+
+ <div class="display">
+ <label for = "factorial_output"> Factorial </label> <br>
+ <input id = "factorial_output" type="number" readonly> 
+ <input type="button" value="Enter" id="factorial_button"> <br><br>
+
+ 
+ <label style="margin-left: 330px;" for = "sum_output"> Sum </label> <br>
+ <input id = "sum_output" type="number" readonly>
+ <input type="button" value="Enter"  id="sum_button"> <br><br>
+
+ <label for = "average_output"> Average </label> <br>
+ <input id = "average_output" type="number" readonly>
+ <input type="button" value="Enter" id="average_button"> <br><br><br><br><br>
+ </div>
+
+ <div class="buttonings">
+ <input style="margin-left: 200px;" type="button" value="Display All" id="display_button" > 
+ <input style="margin-left: 20px;"type="button" value="Clear" id="clear_button"> 
+ </div>
+
+ <br> <br>
+ <a href="index.html"> Back to Home Page </a>
+
+ <script>
+ document.getElementById("display_button").addEventListener("click", function()
+ {
+   factorial();
+   sum();
+   average();
+ });
+
+
+ document.getElementById("factorial_button").addEventListener("click", ()=>
+ {
+    var num;
+    var ans = 1;
+    var i = 1;
+    num = document.getElementById("user_input").value * 1;
+
+    while (i < num)
+    {
+        ans *= (i+1);
+        i++;
+    }   
+    document.getElementById("factorial_output").value = ans;
+ });
+
+ document.getElementById("sum_button").addEventListener("click", ()=>
+ {
+    var num;
+    var ans = 0;
+    var i = 1;
+    num = document.getElementById("user_input").value * 1;
+
+    do
+    {
+        ans += i;
+        i++;
+    }
+    while(i <= num);
+
+    document.getElementById("sum_output").value = ans;
+ });
+
+ document.getElementById("average_button").addEventListener("click", ()=>
+ {
+    var num, i;
+    var partial = 0;
+    var final=0;
+    
+    num = document.getElementById("user_input").value * 1;
+
+    for(i = 0; i <= num; i++)
+    {
+        partial += i;
+    }
+
+    final = partial/num;
+
+    document.getElementById("average_output").value = final;
+ });
+
+ document.getElementById("clear_button").addEventListener("click", ()=>
+ {   
+    document.getElementById("user_input").value = ' ';
+    document.getElementById("factorial_output").value = ' ';
+    document.getElementById("sum_output").value = ' ';
+    document.getElementById("average_output").value = ' ';
+ });
+
+ function factorial()
+ {
+    var num;
+    var ans = 1;
+    var i = 1;
+    num = document.getElementById("user_input").value * 1;
+
+    while (i < num)
+    {
+        ans *= (i+1);
+        i++;
+    }   
+    document.getElementById("factorial_output").value = ans;
+ }
+
+ function sum()
+ {
+    var num;
+    var ans = 0;
+    var i = 1;
+    num = document.getElementById("user_input").value * 1;
+
+    do
+    {
+        ans += i;
+        i++;
+    }
+    while(i <= num);
+
+    document.getElementById("sum_output").value = ans;
+ }
+
+ function average()
+ {
+    var num, i;
+    var partial = 0;
+    var final=0;
+    
+    num = document.getElementById("user_input").value * 1;
+
+    for(i = 0; i <= num; i++)
+    {
+        partial += i;
+    }
+
+    final = partial/num;
+
+    document.getElementById("average_output").value = final;
+ }
+ </script>
+ </body>
+ </html>

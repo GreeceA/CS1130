@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="us">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Chango&family=EB+Garamond:ital,wght@1,600&family=Nunito+Sans:opsz@6..12&display=swap" rel="stylesheet">
+
+<head>
+  <title>Payroll</title>
+  <link rel="icon" type="image/x-icon" href="/visualelements/favicon.ico.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cssfiles/payroll.css">
+</head>
+
+<body>
+
+<h1> &#x2601;&#x2601;PAYROLL&#x2601;&#x2601</h1> <br><br>
+<form>
+    <label style="margin-left:220px;" for="name"> Employee Name </label> 
+    <label style="margin-left:155px;" for="days"> Days Worked </label> 
+    <label style="margin-left:190px;" for="rate"> Daily Rate </label> 
+    <label style="margin-left:155px;" for="deduction"> Deduction Amount  </label> <br>
+
+    <input style="margin-left:165px;" id="name" type="text"> 
+    <input id="days" type="number"> 
+    <input id="rate" type="number"> 
+    <input id="deduction" type="number"> <br><br><br><br>
+    
+    <button style="margin-left: 665px;" type="button" id="enter_button"> Enter </button>
+    <button type="button" id="delete_button"> Delete </button>
+
+
+</form> <br><br><br><br>
+
+<table id="employee_data" >
+    <thead style="height:35px">
+        <th style="width:5%"> No. </th>
+        <th style="width:25%"> Name </th>
+        <th style="width:10%"> Days Worked </th>
+        <th style="width:15%"> Daily Rate </th>
+        <th style="width:15%"> Gross Pay </th>
+        <th style="width:15%"> Deduction Amount </th>
+        <th style="width:15%"> Net Pay </th>
+    </thead>
+    <tbody>
+       
+    </tbody>
+
+
+</table>
+<br><br>
+<a href="index.html"> Back to Home Page </a>
+
+
+<script>
+    document.getElementById("enter_button").addEventListener("click", function()
+    {
+        add_employee();
+        clearelements();
+    });
+    
+    document.getElementById("delete_button").addEventListener("click", function()
+    {
+        delete_employee();
+    });
+    var index = 0;
+
+    function inserting(name, days, rate, deduction, grosspay, netpay)
+    {
+        var row, cell1, cell2, cell3, cell4, cell5, cell6, cell7;
+        
+        
+        table = document.getElementById("employee_data");
+        row = table.insertRow();
+        cell1 = row.insertCell(0); cell2 = row.insertCell(1);
+        cell3 = row.insertCell(2); cell4 = row.insertCell(3);
+        cell5 = row.insertCell(4); cell6 = row.insertCell(5); cell7 = row.insertCell(6);
+
+        cell1.innerHTML = ++index;
+        cell2.innerHTML = name;
+        cell3.innerHTML = days; 
+        cell4.innerHTML = rate;
+        cell5.innerHTML = grosspay;
+        cell6.innerHTML = deduction;
+        cell7.innerHTML = netpay;    
+    }
+
+    function add_employee()
+    {
+    var name, days, rate, deduction, table, grosspay, netpay;
+
+    table = document.getElementById("employee_data").value;
+    name = document.getElementById("name").value;
+    days = document.getElementById("days").value * 1;
+    rate = document.getElementById("rate").value * 1;
+    deduction = document.getElementById("deduction").value * 1;
+
+    grosspay = days * rate;
+    netpay = grosspay - deduction;
+
+    if (name.trim() == "" || days == '0' || rate == '0' || deduction == '0')
+    {
+        alert('Incomplete Data. Please Try Again.');
+    }
+    else
+    {
+        inserting(name, days, rate, deduction, grosspay, netpay);
+    }
+    }
+
+    function clearelements()
+    {   
+        document.getElementById("name").value = ' ';
+        document.getElementById("days").value = ' ';
+        document.getElementById("rate").value = ' ';
+        document.getElementById("deduction").value = ' ';
+    }   
+
+    function rewrite()
+    {
+        var table = document.getElementById("employee_data");
+        var row = table.getElementsByTagName("tr");
+        var index = 1;
+
+        for (var i = 1; i < row.length; i++)
+        {
+            cell = row[i].getElementsByTagName("td");
+            cell[0].innerHTML = index++;
+        }
+    }
+     
+    function delete_employee()
+    {
+        var line = prompt("Enter Line to be Deleted");
+        document.getElementById("employee_data").deleteRow(line);
+        rewrite();
+
+    }
+ 
+</script>
+
+</body>
+</html>
