@@ -34,6 +34,11 @@
 
         income = document.getElementById("income").value * 1;
 
+		if (income < 0)
+		{
+			alert("Please Enter a Valid Income");
+		}
+		
         if (income < 250000)
         {
             tax = income * 0;
