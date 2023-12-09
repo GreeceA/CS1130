@@ -42,7 +42,7 @@
 		width: 12%;
       	border-radius: 10px;
       	font-family: 'Quicksand';
-      	text-align: center;
+      	text-align: right;
       	font-size: 16px;
 	}
 	button
@@ -157,6 +157,7 @@ document.getElementById("compute_grade_button").addEventListener("click", ()=>
 	base = document.getElementById("base"). value * 1;
 	
 	g = base + ((score/items) * (100 - base));
+	g = g.toFixed(0)
 	
 	document.getElementById("grade").value = g;
 	
