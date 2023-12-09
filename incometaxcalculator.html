@@ -58,7 +58,8 @@
         {
             tax = ((income - 8000000) * 0.35) + 2410000;
         }
-
+		
+		tax = tax.toFixed(2);
         document.getElementById("finaltax").value = tax;
     
     });
