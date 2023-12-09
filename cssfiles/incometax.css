@@ -34,10 +34,7 @@
         text-align: center;
         padding: 3px;
         color: black; 
-        margin: auto; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        float: center;
         border-radius: 10px;
         font-weight: bold;
     }
