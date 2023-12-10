@@ -28,18 +28,16 @@
  <a href="index.html"> Back to Home Page </a>
 
  <script>
+	document.getElementById("income").addEventListener("input", function() 
+	{
+		this.value = this.value.replace(/[^0-9]/g, '');
+	});
+ 
     document.getElementById("submit_button").addEventListener("click", ()=>
      {
         var income, tax;
 
         income = document.getElementById("income").value * 1;
-
-		if (income < 0)
-		{
-			alert("Please Enter a Valid Income");
-			document.getElementById("income").value = '';
-			document.getElementById("finaltax").value = '';
-		}
 		
         if (income < 250000)
         {
