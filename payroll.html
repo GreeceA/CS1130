@@ -26,7 +26,7 @@
     
     <button style="margin-left: 665px;" type="button" id="enter_button"> Enter </button>
     <button type="button" id="delete_button"> Delete </button>
-    <button type="button" id="delete_button"> Clear </button>
+    <button type="button" id="clear_button"> Clear </button>
 
 
 </form> <br><br><br><br>
@@ -58,6 +58,16 @@
 		this.value = this.value.replace(/[^0-9]/g, '');
 	});
 	
+	document.getElementById("rate").addEventListener("input", function() 
+	{
+		this.value = this.value.replace(/[^0-9.]/g, '');
+	});
+	
+	document.getElementById("deduction").addEventListener("input", function() 
+	{
+		this.value = this.value.replace(/[^0-9]/g, '');
+	});
+	
     document.getElementById("enter_button").addEventListener("click", function()
     {
         add_employee();
@@ -68,6 +78,12 @@
     {
         delete_employee();
     });
+	
+	document.getElementById("clear_button").addEventListener("click", function()
+    {
+        clear_payroll();
+    });
+	
     var index = 0;
 
     function inserting(name, days, rate, deduction, grosspay, netpay)
@@ -143,6 +159,20 @@
         rewrite();
 
     }
+	
+	function clear_payroll()
+	{
+		var line, table, i;
+		
+		table = document.getElementById("employee_data");
+		line = table.row.length;
+		
+		for (i = table; i > 1; i--)
+		{
+			document.getElementById("employee_data").deleteRow(i);
+		}
+		
+	}
  
 </script>
 
