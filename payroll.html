@@ -24,8 +24,9 @@
     <input id="rate" type="number"> 
     <input id="deduction" type="number"> <br><br><br><br>
     
-    <button style="margin-left: 665px;" type="button" id="enter_button"> Enter </button>
-    <button type="button" id="delete_button"> Delete </button>
+    <button style="margin-left: 665px;" type="button" id="enter_button"> Enter </button> <br><br>
+    <input id = "employee_del" type = "number">
+    <button type="button" id="delete_button"> Delete </button> <br><br>
     <button type="button" id="clear_button"> Clear </button>
 
 
@@ -44,7 +45,15 @@
     <tbody>
        
     </tbody>
-
+ 
+  <!--This is for confirmation of deletion yeyeyey-->
+    <dialog id="confirm_pop">
+      <form method="dialog">
+        <p id="question">  </p> <br>
+        <button id="confirm_button" value="confirm"> Confirm </button>
+        <button id="cancel_button" value="cancel"> Cancel </button>
+      </form>
+    </dialog>
 
 </table>
 <br><br>
@@ -52,46 +61,17 @@
 
 
 <script>
-
-	document.getElementById("days").addEventListener("input", function() 
-	{
-		this.value = this.value.replace(/[^0-9]/g, '');
-	});
-	
-	document.getElementById("rate").addEventListener("input", function() 
-	{
-		this.value = this.value.replace(/[^0-9]/g, '');
-	});
-	
-	document.getElementById("deduction").addEventListener("input", function() 
-	{
-		this.value = this.value.replace(/[^0-9]/g, '');
-	});
-	
-    document.getElementById("enter_button").addEventListener("click", function()
-    {
-        add_employee();
-        clearelements();
-    });
-    
-    document.getElementById("delete_button").addEventListener("click", function()
-    {
-        delete_employee();
-    });
-	
-	document.getElementById("clear_button").addEventListener("click", function()
-    {
-        clear_payroll();
-    });
-	
-    var index = 0;
-
+  
+  //functions
+  
+    //1
     function inserting(name, days, rate, deduction, grosspay, netpay)
     {
         var row, cell1, cell2, cell3, cell4, cell5, cell6, cell7;
         
         
-        table = document.getElementById("employee_data");
+        var table = document.getElementById("employee_data");
+        var index = table.rows.length - 1;
         row = table.insertRow();
         cell1 = row.insertCell(0); cell2 = row.insertCell(1);
         cell3 = row.insertCell(2); cell4 = row.insertCell(3);
@@ -100,12 +80,13 @@
         cell1.innerHTML = ++index;
         cell2.innerHTML = name;
         cell3.innerHTML = days; 
-        cell4.innerHTML = rate;
-        cell5.innerHTML = grosspay;
-        cell6.innerHTML = deduction;
-        cell7.innerHTML = netpay;    
+        cell4.innerHTML = '&#x20B1 ' + rate.toFixed(2);
+        cell5.innerHTML = '&#x20B1 ' + grosspay.toFixed(2);
+        cell6.innerHTML = '&#x20B1 ' + deduction.toFixed(2);
+        cell7.innerHTML = '&#x20B1 ' + netpay.toFixed(2);   
     }
 
+    //2
     function add_employee()
     {
     var name, days, rate, deduction, table, grosspay, netpay;
@@ -130,7 +111,8 @@
         inserting(name, days, rate, deduction, grosspay, netpay);
     }
     }
-
+    
+    //3
     function clearelements()
     {   
         document.getElementById("name").value = ' ';
@@ -139,6 +121,7 @@
         document.getElementById("deduction").value = ' ';
     }   
 
+    //4
     function rewrite()
     {
         var table = document.getElementById("employee_data");
@@ -152,16 +135,30 @@
         }
     }
      
+    //5
     function delete_employee()
     {
-        var line = prompt("Enter Line to be Deleted");
-        document.getElementById("employee_data").deleteRow(line);
-        rewrite();
+        var line = document.getElementById("employee_del").value;
+        var table = document.getElementById("employee_data");
+   
+        if (line <= 0 || line > table.rows.length - 1)
+          {
+            alert("There is no employee number in the payroll.")
+            document.getElementById("employee_del").value = '';
+          }
+        else
+          {
+            table.deleteRow(line);
+            rewrite();
+            document.getElementById("employee_del").value = '';
+          }
+
+      
 
     }
-	
-	function clear_payroll()
-	{
+	  //6
+	  function clear_payroll()
+	  {
 		var lines, table, i;
 		
 		table = document.getElementById("employee_data");
@@ -171,10 +168,98 @@
 		{
 			table.deleteRow(i);
 		}
-		
-	}
+    
+	  }
+  
+    //main function
+  (() => 
+   {
+    
+  // start of limiting inputs  
+    document.getElementById("days").addEventListener("input", function() 
+	{
+		this.value = this.value.replace(/[^0-9]/g, '');
+	});
+	
+	document.getElementById("rate").addEventListener("input", function() 
+	{
+		this.value = this.value.replace(/[^0-9]/g, '');
+	});
+	
+	document.getElementById("deduction").addEventListener("input", function() 
+	{
+		this.value = this.value.replace(/[^0-9]/g, '');
+	});
+   //end of limiting inputs to positive integer because there is no day that is 2.5 days 
+    
+  const confirm_button = document.getElementById("confirm_button");
+  const cancel_button = document.getElementById("cancel_button");
+  const confirm_pop = document.getElementById("confirm_pop");
+  confirm_pop.returnValue = "confirm";
+    
+  //for enter button
+  document.getElementById("enter_button").addEventListener("click", () =>
+    {
+      add_employee();
+      clearelements();
+  });
+    
+    document.getElementById("clear_button").addEventListener("click", () =>
+  {
+     document.getElementById("question").innerHTML = "Clear the Payroll?";
+     confirm_pop.showModal();
+  });
+  
+  //for delete to appear
+  document.getElementById("delete_button").addEventListener("click", () =>
+  {
+     document.getElementById("question").innerHTML = "Delete Employee?";
+     confirm_pop.showModal();
+  });
+
+  confirm_button.addEventListener("click", () =>
+   {
+      comfirm_pop.returnValue = "confirm";
+      comfirm_pop.close("confirm");             
+   });
+  
+  //for cancel
+  cancel_button.addEventListener("click", () =>
+   {
+      comfirm_pop.returnValue = "cancel";
+      comfirm_pop.close("cancel");             
+   });
+    
+      //for like the dialog to work
+    confirm_pop.addEventListener("close", (e) =>
+   {
+      var result = e.target.returnValue;
+      var question = document.getElementById("question").innerHTML;
+      
+      if (result == "confirm")
+      {
+          switch (question)
+        {
+          case 'Clear the Payroll?':
+            clear_payroll();
+            break;
+          case 'Delete Employee?':
+            delete_employee();
+            break;
+        }
+      }
+     
+    });
+  
+    
+    
+  })(); //end of main function
+    
  
+
 </script>
 
 </body>
 </html>
+
+
