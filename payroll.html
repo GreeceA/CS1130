@@ -14,22 +14,35 @@
 
 <h1> &#x2601;&#x2601;PAYROLL&#x2601;&#x2601</h1> <br><br>
 <form>
-    <label style="margin-left:220px;" for="name"> Employee Name </label> 
-    <label style="margin-left:155px;" for="days"> Days Worked </label> 
-    <label style="margin-left:190px;" for="rate"> Daily Rate </label> 
-    <label style="margin-left:155px;" for="deduction"> Deduction Amount  </label> <br>
+  <div class="labels">
+    <label  for="name"> Employee Name </label> 
+    <label  for="days"> Days Worked </label> 
+    <label  for="rate"> Daily Rate </label> 
+    <label for="deduction"> Deduction Amount  </label> <br>
+    </div>
 
-    <input style="margin-left:165px;" id="name" type="text"> 
+  <div class="labels_2">
+    <input id="name" type="text"> 
     <input id="days" type="number"> 
     <input id="rate" type="number"> 
     <input id="deduction" type="number"> <br><br><br><br>
-    
-    <button style="margin-left: 665px;" type="button" id="enter_button"> Enter </button> 
-    <button style="margin-left: 665px;" type="button" id="clear_input"> Clear </button><br><br>
-    <input id = "employee_del" type = "number">
-    <button type="button" id="delete_button"> Delete </button> <br><br>
-    <button type="button" id="clear_button"> Clear Payroll</button>
+    </div>
 
+     
+    <div class="inputzzz">
+    <button  type="button" id="enter_button"> Enter </button> 
+    <button  type="button" id="clear_input"> Clear </button>
+    </div>
+    <br><br><br>
+    <p>Payroll Deletion</p>
+    <div class="delete_yeah">
+      <input id = "employee_del" type = "number">
+    </div>
+    <div class="delete_input"> <br><br><br>
+      <button type="button" id="clear_button"> Clear Payroll</button>
+      <button type="button" id="delete_button"> Delete </button> 
+ 
+    </div>
 
 </form> <br><br><br><br>
 

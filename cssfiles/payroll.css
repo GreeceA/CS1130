@@ -20,28 +20,97 @@
       -0.5px 0.5px 0 #FFFFFF, 
       0.5px 0.5px 0 #FFFFFF;
     }
-    form label
+    
+    .labels
+{
+  width: 100%;
+  display: flex;
+      justify-content: center;
+      align-items: center;
+}
+    .labels label
     {
+        width: 17%;
+        text-align: center;
+        margin-left: 40px;
         font-family: 'Bricolage Grotesque', sans-serif;
         font-size: 21px;
         color: #57504d;
     }
-    form input
+
+    .labels_2
+{
+  width: 100%;
+  display: flex;
+      justify-content: center;
+      align-items: center;
+}
+    .labels_2 input
     {
-        width: 17%;
+        width: 17%;   
+        float: center;
         margin-left: 40px;
         border-radius: 10px;
         font-family: 'Nunito Sans', sans-serif;
         text-align: right;
         font-size: 16px;
     }
-    form button
+    .inputzzz
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+    .inputzzz button
     {
         width: 5%;
         margin-left: 40px;
         border-radius: 10px;
         font-family: 'EB Garamond', serif;
         font-size: 16px;
+        color: #453f3d;
+    }
+  p
+  {
+        width: 100%;
+        text-align: center;
+        margin-left: 20px;
+        font-family: 'Bricolage Grotesque', sans-serif;
+        font-size: 20px;
+        color: #57504d;
+  }
+    .delete_yeah
+    {    
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .delete_yeah input
+    { 
+        width: 10%;   
+        margin-left: 40px;
+        border-radius: 10px;
+        font-family: 'Nunito Sans', sans-serif;
+        text-align: right;
+        font-size: 14px;
+    }
+
+    .delete_input
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .delete_input button
+    {
+        top: 10px;
+        width: 8%;
+        margin-left: 40px;
+        border-radius: 10px;
+        font-family: 'EB Garamond', serif;
+        font-size: 14px;
         color: #453f3d;
     }
     form button:hover
