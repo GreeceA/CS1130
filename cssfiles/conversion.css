@@ -1,12 +1,4 @@
-    h1
-   {
-      font-family: 'copse';
-      font-size: 60px;
-      letter-spacing: 10px;
-      color: #2b502f;
-      margin-left: 95px;
-      margin-top: 80px;
-   }
+
    body
    {
       background-image: url("../visualelements/1.png");
@@ -14,51 +6,104 @@
       background-attachment: fixed;
 
    }
-   label
+
+  .main-con
+{
+  width: 50%;
+  height: 100%;
+}
+    .title-con, .text1, .concl-con, .footer-con
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+   .title-con p
    {
-      font-family: 'josefin sans';
-      font-size: 20px;
-      color: #5e8e44;
+      font-family: 'copse';
+      font-size: 60px;
+      letter-spacing: 10px;
+      color: #2b502f;
+      margin-top: 80px;
+      font-weight: bold;  
    }
-   .text1
+  .text1
    {
       font-size: 30px;
-      margin-left: 200px;
+      font-family: 'josefin sans';
+      color: #5e8e44;
    }
-   select
+
+.select-con
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ select
    {
-      width: 15%;
-      margin-left: 250px;
+      width: 25%;
       margin-top: 10px;
       font-family: 'quicksand';
       font-size: 15px;
-      font-weight: bold;
+      font-weight: bold;    
    }
-   input[type=number]
+
+.label-con
+  {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.label-con label
    {
-      width: 12%;
-      margin-left: 90px;
+      width: 40%;
+      font-family: 'josefin sans';
+      font-size: 20px;
+      color: #5e8e44;
+      margin-left: 15%;
+   }
+ 
+.output-con
+  {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.output-con input[type=number]
+  {
+      width: 25%;
       border-radius: 10px;
       font-family: 'quicksand';
       text-align: right;
       font-size: 13px;
       font-weight: bold;
-   }
-   input[type=button]
-   {
+      margin-left: 15%;
+  }
+  
+.output-con input[type=button]
+  {
       background-color: #ebbba7;
-      width: 4%;
+      width: 9%;
       border-radius: 10px;
-   }
-   h2
+      margin-left: 1%;
+  }
+  
+   .concl-con h2
    {
-      width: 50%;
       text-align: center;
       font-family: 'comfortaa';
       font-size: 35px;
       color: #5e8e44;
       font-weight: bold;
+      margin-bottom: 10%;
    }
+
    a
    {
       background-color: #ebbba7;
@@ -69,8 +114,7 @@
       font-size: 17px;
       color: #5e8e44;
       border: 1px solid black;
-      margin-left: 250px;
-      margin-top: 250px;
+
    }
    a:hover
    {
