@@ -1,66 +1,18 @@
-@import url('https://unpkg.com/css.gg@2.0.0/icons/css/menu.css');
-
-body
+  body
   {
     background-image: url("../visualelements/index_bg.png");
     background-size: cover;
     background-attachment: fixed;
-    width: 100%;
-    min-height: 100vh;
-    margin: 5px;
   }
-
-
-#header
-{
-  width: 100%;
-  min-height: 10vh;
-  background-color: white;
-}
-
-#title-container
-{
-  width: 100%;
-  min-height: 20vh;
-  background-color: brown;
-}
-
-#title-container p
+  
+  .row::after
   {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    letter-spacing: 20px; 
-    font-size: 80px; 
-    color: black; 
-    margin: 0;
-    text-align: center;
-    text-shadow: 
-    -1px -1px 0 #D4AF37,
-    1px -1px 0 #D4AF37, 
-    -1px 1px 0 #D4AF37, 
-    1px 1px 0 #D4AF37;
+    content: "";
+    display: table;
+    padding: 20px;
   }
 
-#quote-container
-{
-  width: 100%;
-  min-height: 20vh;
-  background-color: blue;
-  font-family: 'Taviraj', serif; 
-    font-weight: 200px;
-    letter-spacing: 1px;
-    text-align: center;
-    margin: 0;
-}
-
-#options-container
-{
-  width: 100%;
-  min-height: 50vh;
-  background-color: purple;
-}
-
-.column a
+  .column a
   {
     float: left;
     width: 20%;
@@ -68,10 +20,9 @@ body
     font-family: 'Rubik', sans-serif;
     color: #51325e;
     text-decoration: none;
-    margin-top: 30px;
   }
 
-  .column a:hover
+  a:hover
   {
     font-size: 18px;
     color: #CECFD2;
@@ -83,98 +34,29 @@ body
     0.5px -0.5px 0 #71706E, 
     -0.5px 0.5px 0 #71706E, 
     0.5px 0.5px 0 #71706E;
+  
+  }
+  
+  .info
+  {
+    font-family: 'Taviraj', serif; 
+    font-weight: 200px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 0;
   }
 
-.gg-menu {
- transform: scale(var(--ggs,1))
-}
-
-.gg-menu,
-.gg-menu::after,
-.gg-menu::before {
- box-sizing: border-box;
- position: relative;
- display: in-line block;
- width: 20px;
- height: 2px;
- border-radius: 3px;
- background: currentColor;
- 
-}
-
-.menu-content
-{
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 250px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
-
-.menu-content a
-{
-  display: block;
-  width: 90%;
-  text-decoration: none;
-  border: none;
-  font-family: 'Taviraj', serif; 
-  letter-spacing: 1px;
-  color: black;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 10px;
-}
-
-.gg-menu:hover .menu-content
-{
-  display: block;
-} 
-
-.menu-content a:hover
-{
-  background-color: #F5F5F4;
-} 
-
- .gg-info 
-{
- box-sizing: border-box;
- position: absolute;
- display: block;
- transform: scale(var(--ggs,1));
- width: 20px;
- height: 20px;
- border: 2px solid;
- border-radius: 40px;
- top: 835px;
- left: 1010px;
-    
-}
-
-.gg-info::after,
-.gg-info::before {
- content: "";
- display: block;
- box-sizing: border-box;
- position: absolute;
- border-radius: 3px;
- width: 2px;
- background: currentColor;
- left: 7px;
-}
-
-.gg-info::after {
- bottom: 2px;
- height: 8px;
-}
-
-.gg-info::before {
- height: 2px;
- top: 2px
-} 
-
-
-
-
-
+  p.info
+  {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 20px; 
+    font-size: 80px; 
+    color: black; 
+    margin: 0;
+    text-shadow: 
+    -1px -1px 0 #D4AF37,
+    1px -1px 0 #D4AF37, 
+    -1px 1px 0 #D4AF37, 
+    1px 1px 0 #D4AF37;
+  }
