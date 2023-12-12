@@ -6,7 +6,7 @@
     }
   .main-con
 {
-  display: flex;
+        display: flex;
         justify-content: center; 
         align-items: center; 
         height: 100vh;
@@ -23,7 +23,6 @@
         font-size: 55px;
         letter-spacing: 10px;
         text-align: center;
-        margin-top: 10%;
         color: #253D5B;
         text-shadow: 1px 2px 1px #000;
     }
