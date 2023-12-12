@@ -12,20 +12,30 @@
 
  <body>
  
- <h1> &#x269E;&#x2740;INCOME TAX CALCULATOR&#x2740;&#x269F </h1>  <br> <br> <br> 
- 
- <div>
+ </div class="main-con">
+   <div class="title-con">
+      <h1> &#x269E;&#x2740;INCOME TAX CALCULATOR&#x2740;&#x269F </h1>  <br> <br> <br> 
+   </div>
+   
+ <div class="center-con">
  <label for = "income"> Enter your annual income </label><br><br>
  <input id= "income" type = "number"> <br> <br>
 
  <label for = "finaltax"> Income Tax </label> <br><br>
  <input id = "finaltax" type ="number" readonly> <br><br><br><br><br>
-
- <input style="margin-left:590px;" type="button" value="Submit" id="submit_button">
+  
+  <div class="button-con">
+ <input type="button" value="Submit" id="submit_button">
  <input type="button" value="Clear" id="clear_button"> <br> <br> <br><br><br>
-
- </div>
+   </div>
+   </div>
+   
+   <div class="link-con">
  <a href="index.html"> Back to Home Page </a>
+   </div>
+   
+   </div><!--end of main-con-->
+</div> </div>
 
  <script>
 	document.getElementById("income").addEventListener("input", function() 
