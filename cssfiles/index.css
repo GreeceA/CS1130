@@ -11,7 +11,8 @@
     width: 100%;
     height: 100vh;
   }
-  .info p
+
+  p
   {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
